@@ -1,0 +1,16 @@
+#left-panel{
+    width: 240px;
+    padding-top:4%;
+}
+.search-card{
+    height: 130%;
+}
+.navbar .navbar-nav > li {
+    margin: 10px;
+}
+.right-panel .navbar-brand{
+    width: 140px;
+}
+.right-panel .top-left{
+    width: 250px;
+}

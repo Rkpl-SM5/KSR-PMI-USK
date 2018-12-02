@@ -1,6 +1,6 @@
-$.noConflict();
+var $jq = jQuery.noConflict();
 
-jQuery(document).ready(function($) {
+$jq(document).ready(function($) {
 
 	"use strict";
 
@@ -10,8 +10,6 @@ jQuery(document).ready(function($) {
 
 	jQuery('.selectpicker').selectpicker;
 
-
-	
 
 	$('.search-trigger').on('click', function(event) {
 		event.preventDefault();
@@ -70,7 +68,7 @@ jQuery(document).ready(function($) {
 	$(".menu-item-has-children.dropdown").each(function() {
 		$(this).on('click', function() {
 			var $temp_text = $(this).children('.dropdown-toggle').html();
-			$(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>'); 
+			//$(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>');
 		});
 	});
 
@@ -82,9 +80,7 @@ jQuery(document).ready(function($) {
 			$('body').addClass('small-device'); 
 		} else {
 			$('body').removeClass('small-device');  
-		} 
-		
+		}
 	});
-  
- 
+
 });

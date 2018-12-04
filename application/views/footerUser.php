@@ -5,8 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
 
     <script src="assets/theme/js/main.js"></script>
-    <script src="<?php echo base_url()?>assets/theme/js/app.js"></script>
-    <script src="<?php echo base_url()?>assets/theme/js/appDashboard.js"></script>
+    <script src="<?php echo base_url()?>assets/theme/js/appUser.js"></script>
 
     <!--  Chart js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>

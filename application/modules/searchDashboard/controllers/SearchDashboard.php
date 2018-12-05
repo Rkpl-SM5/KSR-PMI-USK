@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class SearchDashboard extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,16 +19,24 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-
-	function __construct() {
+     function __construct() {
 		parent::__construct();
 		$this->_public_view= $this->config->item('public_view');
-		$this->load->helper('url');
+          //$this->load->helper('url');
 		$this->load->model('Model_lib');
 	}
 
 	public function index()
 	{
-		$this->load->view('wrapperUser');
+		$page=$this->load->view('searchDashboard','',true);
+		$val=array();
+		$navigator=array();
+
+		array_push($navigator,"Search");
+		array_push($val,"searchDashboard");
+
+		$data=array("page"=>$page,"val"=>$val,"nav"=>$navigator);
+		echo json_encode($data);
 	}
+
 }

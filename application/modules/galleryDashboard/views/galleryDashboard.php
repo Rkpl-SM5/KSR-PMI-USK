@@ -7,7 +7,7 @@
                     <div class="stat-icon dib">
                         <i class="ti-server text-muted"></i>
                     </div>
-                    <div class="stat-content">
+                        <div class="stat-content">
                         <div class="text-left dib">
                             <div class="stat-heading">Gallery</div>
                             <div class="stat-text">Total: 765</div>

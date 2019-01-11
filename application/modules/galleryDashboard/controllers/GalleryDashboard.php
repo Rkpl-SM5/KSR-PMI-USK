@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class GalleryDashboard extends CI_Controller {
+class GalleryDashboard extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -19,23 +20,24 @@ class GalleryDashboard extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-     function __construct() {
+	function __construct()
+	{
 		parent::__construct();
-		$this->_public_view= $this->config->item('public_view');
+		$this->_public_view = $this->config->item('public_view');
           //$this->load->helper('url');
 		$this->load->model('Model_lib');
 	}
 
 	public function index()
 	{
-		$page=$this->load->view('galleryDashboard','',true);
-		$val=array();
-		$navigator=array();
+		$page = $this->load->view('galleryDashboard', '', true);
+		$val = array();
+		$navigator = array();
 
-		array_push($navigator,"Gallery");
-		array_push($val,"galleryDashboard");
+		array_push($navigator, "Gallery");
+		array_push($val, "galleryDashboard");
 
-		$data=array("page"=>$page,"val"=>$val,"nav"=>$navigator);
+		$data = array("page" => $page, "val" => $val, "nav" => $navigator);
 		echo json_encode($data);
 	}
 }

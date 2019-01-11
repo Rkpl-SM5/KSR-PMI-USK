@@ -8,7 +8,6 @@ var nav = "searchDashboard";
 var flag = 0;
 
 $jq(document).ready(function ($) {
-
     //set landing dashboard di menu search
     // console.log(sessionStorage.getItem("flag"));
     if (sessionStorage.getItem("flag")) {
@@ -24,7 +23,6 @@ $jq(document).ready(function ($) {
         update(nav);
     });
 
-
     // if (window.performance) {
     //     console.info("window.performance works fine on this browser");
     // }
@@ -38,7 +36,6 @@ $jq(document).ready(function ($) {
         sessionStorage.setItem("nav", nav);
 
         update(nav);
-
     } else {
         flag++;
         sessionStorage.setItem("flag", flag);
@@ -46,9 +43,7 @@ $jq(document).ready(function ($) {
 
         update(nav);
     }
-
 });
-
 
 /* function untuk melakukan update ketika user melakukan klik pada nav-text
     jika yang diklik adalah menu paling kiri(utama) maka tampilkan
@@ -62,7 +57,11 @@ function menuNav(x) {
     var navVal = "";
 
     for (i = 0; i < navTextVal.length; i++) {
-        if ($jq(x).data("val").toString() === navTextVal[i].toString()) {
+        if (
+            $jq(x)
+            .data("val")
+            .toString() === navTextVal[i].toString()
+        ) {
             navVal += navTextVal[i] + "/" + navTextVal[i + 1];
             break;
         }
@@ -109,12 +108,13 @@ function navText(x, y) {
     for (i = 0; i < x.length - 1;) {
         navTextVal.push(y[i]);
         html += "<li>";
-        html += "<a class='menu-nav' onclick='menuNav(this)' data-val=" + y[i] + ">";
+        html +=
+            "<a class='menu-nav' onclick='menuNav(this)' data-val=" + y[i] + ">";
         html += x[i++];
         html += "</a>";
         html += "</li>";
     }
     navTextVal.push(y[y.length - 1]);
-    html += '<li class="active">' + x[x.length - 1] + '</li>';
+    html += '<li class="active">' + x[x.length - 1] + "</li>";
     return html;
 }

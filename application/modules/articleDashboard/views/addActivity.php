@@ -1,7 +1,7 @@
 <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
 <script type="text/javascript">
     <?php
-include APPPATH . "modules/ArticleDashboard/ajax/akun.js";
+include APPPATH . "modules/ArticleDashboard/ajax/article.js";
 ?>
 </script>
 

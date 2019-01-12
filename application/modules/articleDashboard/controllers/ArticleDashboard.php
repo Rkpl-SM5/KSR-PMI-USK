@@ -75,7 +75,23 @@ class ArticleDashboard extends CI_Controller {
 
         $data = array("page" => $page, "val" => $val, "nav" => $navigator);
         echo json_encode($data);
-    }
+	}
+	
+	
+	public function selectActivity (){
+		$query = $this->Model_lib->SelectQuery("Select * from lable");
+		$id=array();
+		$lable=array();
+		$made=array();
+		foreach ($query->result() as $row)
+		{
+			$id = $row->id_lable;
+			$lable = $row->lable;
+			$made = $row->made;
+		}
+
+		echo json_encode($id, $lable, $made);
+	}
 
 
 }

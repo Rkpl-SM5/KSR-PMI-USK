@@ -23,55 +23,55 @@ $jq("#sort").click(function () {
 
 $jq(".add-image").click(function () {
     $jq("#btn-add-img").trigger("click");
-    num++;
 });
 
+function setFileThumbnail(fileName) {
+    let reader = new FileReader(); // instance of the FileReader
+    reader.readAsDataURL(fileName); // read the local file
+
+    reader.onloadend = function () { // set image data as background of div
+        // $jq(pos + " .card-body").css("background-image", "url(" + this.result + ")");
+        // return this.result;
+        createThumbnail(num++, this.result);
+    };
+
+}
+
 $jq("#btn-add-img").on("change", function (event) {
+
     var files = event.target.files;
     if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
-    var temp = "";
     for (let i = 0; i < files.length; i++) {
         if (/^image/.test(files[i].type)) {
-            // only image file
-            // temp += "ss";
-            var reader = new FileReader(); // instance of the FileReader
-            reader.readAsDataURL(files[i]); // read the local file
-            reader.onloadend = function () {
-                // set image data as background of div
-                //     createThumbnail(num, this.result);
-                temp += " ff " + this.result;
-            };
-        }
+            // createThumbnail(num++, files[i]);
+            setFileThumbnail(files[i]);
+        };
     }
-    console.log(JSON.stringify(temp));
+    // console.log(JSON.stringify(temp));
 });
 
 function getAllValues() {
-    var allVal;
-    $jq("#image-add :input").each(function () {
-        allVal += "&" + $jq(this).attr("name") + "=" + $jq(this).val();
-    });
-    alert(allVal);
+    var allVal = "";
+    var x = document.getElementById("image-add").querySelectorAll(".img-container");
+
+    for (var i = 0; i < x.length; i++) {
+        allVal += x[i].style.backgroundImage;
+        alert(x[i].style.backgroundImage);
+    }
 }
 
 function createThumbnail(id, src) {
     let values = "";
     let pos = "#img" + id;
 
-    values += "<div id=img" + id + ' class="col-sm-6 col-lg-4 centered-content" style="display:none">';
+    values += "<div id=img" + id + ' class="col-sm-6 col-lg-4 centered-content">';
     values += '<div class="img-add card text-black">';
     values += '<div class="card-body text-center img-container">';
-    // values += '<h1>foto</h1>';
-    // values += '<div id=tes></div>';
-
-    values += '<input type="file" name="file" style="display:none">';
     values += "</div>";
     values += "</div>";
     values += "</div>";
 
     $jq("#image-add").prepend(values);
     $jq(pos + " .card-body").css("background-image", "url(" + src + ")");
-    $jq(pos).change(function (e) {
-        $jq(pos).show();
-    });
+
 }

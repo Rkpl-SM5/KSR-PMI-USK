@@ -26,3 +26,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    <?php
+    include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
+    ?>
+</script>

@@ -31,3 +31,8 @@
 .img-add {
     height: 120px;
 }
+
+.img-gallery {
+    height: 250px;
+    background-repeat: no-repeat;
+}

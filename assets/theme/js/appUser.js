@@ -33,7 +33,7 @@ function update(z) {
             //navText(data.nav);
         },
         error: function (data) {
-            alert(z);
+            alert(BASE_URL + z);
         }
     });
 }

@@ -9,7 +9,7 @@
     <div class="col-lg-8 centered-content">
         <div class="card">
             <div class="card-header">
-                <strong>Masked Input</strong> <small> Small Text Mask</small>
+                <strong>Form Gallery</strong>
             </div>
             <div class="card-body card-block">
                 <div class="form-group">
@@ -29,7 +29,8 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                        <input class="form-control input-center" placeholder="Date">
+                        <input type="date" class="form-control input-center">
+                        <div class="right-content-calender"></div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,7 +43,6 @@
                                 </div>
                             </div>
                             <input id="btn-add-img" type="file" name="file" style="display:none" multiple>
-
                         </div>
                     </div>
                 </div>

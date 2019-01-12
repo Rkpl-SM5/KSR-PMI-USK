@@ -71,6 +71,8 @@
 
 .img-container {
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .circle-100 {
@@ -91,4 +93,10 @@
 
 .middle-content-15 {
     top: 15%;
+}
+
+.right-content-calender {
+    position: absolute;
+    right: 2%;
+    top: 20%;
 }

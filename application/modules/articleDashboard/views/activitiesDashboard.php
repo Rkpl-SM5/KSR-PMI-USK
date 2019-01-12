@@ -46,6 +46,9 @@
 
 </div>
 
+<div id="activity-content">
+</div>
+
 
 <div class="row">
     <div class="col-lg-3 col-md-6">

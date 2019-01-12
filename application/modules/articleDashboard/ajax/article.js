@@ -17,7 +17,18 @@
 // });
 
 $jq(document).ready(function() {
-    alert("tes");
+    $jq.ajax({
+        url: BASE_URL+'articleDashboard/selectActivity/',
+        dataType : "json",
+        success: function(data){
+            alert(JSON.stringify(data));
+                // $('#activity-content').html(data[0]);
+        },
+        error: function(data){
+            alert(JSON.stringify(data));
+                // alert("error");
+        }
+    });
 });
 
 

@@ -79,18 +79,17 @@ class ArticleDashboard extends CI_Controller {
 	
 	
 	public function selectActivity (){
-		$query = $this->Model_lib->SelectQuery("Select * from lable");
-		$id=array();
-		$lable=array();
-		$made=array();
+		$query = $this->Model_lib->SelectQuery("SELECT * FROM lable");
+		// $id=array();
+		// $lable=array();
+		// $made=array();
+		$a="";
 		foreach ($query->result() as $row)
 		{
-			$id = $row->id_lable;
-			$lable = $row->lable;
-			$made = $row->made;
+			$a.=$row->id_lable;
 		}
 
-		echo json_encode($id, $lable, $made);
+		echo json_encode($a);
 	}
 
 

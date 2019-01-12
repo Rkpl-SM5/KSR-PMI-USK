@@ -1,64 +1,50 @@
 <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
 <script type="text/javascript">
     <?php
-include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
-?>
+    include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
+    ?>
 </script>
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-8 centered-content">
         <div class="card">
             <div class="card-header">
                 <strong>Masked Input</strong> <small> Small Text Mask</small>
             </div>
             <div class="card-body card-block">
                 <div class="form-group">
-                    <label class=" form-control-label">Date input</label>
                     <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                        <input class="form-control">
+                        <input class="form-control input-center" placeholder="Title">
                     </div>
-                    <small class="form-text text-muted">ex. 99/99/9999</small>
                 </div>
                 <div class="form-group">
-                    <label class=" form-control-label">Phone input</label>
                     <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                        <input class="form-control">
+                        <input class="form-control input-center" placeholder="Lable">
                     </div>
-                    <small class="form-text text-muted">ex. (999) 999-9999</small>
                 </div>
                 <div class="form-group">
-                    <label class=" form-control-label">Taxpayer Identification Numbers</label>
                     <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                        <input class="form-control">
+                        <input class="form-control input-center" placeholder="Location">
                     </div>
-                    <small class="form-text text-muted">ex. 99-9999999</small>
                 </div>
                 <div class="form-group">
-                    <label class=" form-control-label">Social Security Number</label>
                     <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
-                        <input class="form-control">
+                        <input class="form-control input-center" placeholder="Date">
                     </div>
-                    <small class="form-text text-muted">ex. 999-99-9999</small>
                 </div>
                 <div class="form-group">
-                    <label class=" form-control-label">Eye Script</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                        <input class="form-control">
+                    <div id="image-add" class="input-group">
+                        <!-- add static for add button -->
+                        <div class="col-sm-6 col-lg-4 centered-content">
+                            <div class="img-add card text-white add-image">
+                                <div class="card-body text-center">
+                                    <h1 style="margin: 10% 0 0 0;"><i class="fa fa-photo color-gray icon-app"></i></h1>
+                                </div>
+                            </div>
+                            <input id="btn-add-img" type="file" name="file" style="display:none" multiple>
+
+                        </div>
                     </div>
-                    <small class="form-text text-muted">ex. ~9.99 ~9.99 999</small>
-                </div>
-                <div class="form-group">
-                    <label class=" form-control-label">Credit Card Number</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                        <input class="form-control">
-                    </div>
-                    <small class="form-text text-muted">ex. 9999 9999 9999 9999</small>
                 </div>
             </div>
         </div>

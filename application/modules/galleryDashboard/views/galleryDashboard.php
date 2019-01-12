@@ -1,11 +1,11 @@
 <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
 <script type="text/javascript">
-     <?php
+    <?php
     include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
     ?>
-     </script>
+</script>
 
-<div class="row">
+<div class="row" onload="tes()">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
@@ -23,23 +23,6 @@
                     <div class="stat-icon dib">
                         <i class="ti-server text-muted"></i>
                     </div>
-                        <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-heading">Gallery</div>
-                            <div class="stat-text">Total: 765</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="stat-widget-four">
-                    <div class="stat-icon dib">
-                        <i class="ti-server text-muted"></i>
-                    </div>
                     <div class="stat-content">
                         <div class="text-left dib">
                             <div class="stat-heading">Gallery</div>
@@ -237,5 +220,21 @@
             </div>
         </div>
     </div>
-
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="ti-server text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Gallery</div>
+                            <div class="stat-text">Total: 765</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

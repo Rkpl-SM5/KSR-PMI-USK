@@ -39,9 +39,10 @@
                             <div class="img-add card text-white add-image">
                                 <div class="card-body text-center">
                                     <h1 style="margin: 10% 0 0 0;"><i class="fa fa-photo color-gray icon-app"></i></h1>
-
                                 </div>
                             </div>
+                            <input id="btn-add-img" type="file" name="file" style="display:none" multiple>
+
                         </div>
                     </div>
                 </div>

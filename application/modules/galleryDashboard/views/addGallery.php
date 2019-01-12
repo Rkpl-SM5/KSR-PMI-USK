@@ -49,4 +49,8 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-2 fixed-right middle-content-15">
+        <button type="button" class="btn btn-outline-primary centered-content vertical circle-100"><i class="ti-plus"></i></button>
+        <button type="button" class="btn btn-outline-danger centered-content vertical circle-100"><i class="ti-close"></i></button>
+    </div>
 </div>

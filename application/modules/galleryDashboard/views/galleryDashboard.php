@@ -9,8 +9,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <button id="sort"><i class="fa fa-sort"></i> sort</button>
-                <button id="add"><i class="fa fa-plus"></i> add</button>
+                <button id="sort" class="btn btn-outline-primary"><i class="fa fa-sort"></i> sort</button>
+                <button id="add" class="btn btn-outline-primary"><i class="fa fa-plus"></i> add</button>
             </div>
         </div>
     </div>

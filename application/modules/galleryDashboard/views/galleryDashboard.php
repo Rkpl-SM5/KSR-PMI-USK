@@ -5,7 +5,7 @@
     ?>
 </script>
 
-<div class="row">
+<div class="row" onload="tes()">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">

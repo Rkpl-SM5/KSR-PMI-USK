@@ -70,7 +70,7 @@ class ArticleDashboard extends CI_Controller {
 		array_push($navigator,"Activities");
 		array_push($val,"activities");
 
-        array_push($navigator, "Add");
+        array_push($navigator, "AddGroupActivity");
         array_push($val, "add");
 
         $data = array("page" => $page, "val" => $val, "nav" => $navigator);

@@ -9,7 +9,7 @@ include APPPATH . "modules/ArticleDashboard/ajax/akun.js";
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Masked Input</strong> <small> Small Text Mask</small>
+                <strong>AddGroup</strong> <small>Grouping Activity</small>
             </div>
             <div class="card-body card-block">
                 <div class="form-group">

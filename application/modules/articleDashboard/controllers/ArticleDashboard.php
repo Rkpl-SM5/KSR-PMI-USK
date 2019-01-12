@@ -58,16 +58,17 @@ class ArticleDashboard extends CI_Controller {
 		echo json_encode($data);
 	}
 
-}
-
-public function add()
+	public function addActivity()
     {
         $page = $this->load->view('addActivity', '', true);
         $val = array();
         $navigator = array();
 
-        array_push($navigator, "Activities");
-        array_push($val, "ArticleDashboard");
+        array_push($navigator, "Article");
+		array_push($val, "articleDashboard");
+		
+		array_push($navigator,"Activities");
+		array_push($val,"activities");
 
         array_push($navigator, "Add");
         array_push($val, "add");
@@ -75,3 +76,8 @@ public function add()
         $data = array("page" => $page, "val" => $val, "nav" => $navigator);
         echo json_encode($data);
     }
+
+
+}
+
+ 	

@@ -7,11 +7,13 @@
 
 <div class="animated">
   <div class="card">
-    <div class="card-body">
-      <button id="sort" class="btn btn-primary mb-1 fa fa-sort"> Sort</button>
-      <button id="add" type="button" class="btn btn-primary mb-1 fa fa-plus" data-toggle="modal" data-target="#Activity-GroupModal">
-        Add
-      </button>
+    <div id="editable" class="card-body">
+
+        <button id="sort" class="btn btn-primary mb-1 fa fa-sort"> Sort</button>
+        <button id="add" class="btn btn-primary mb-1 fa fa-plus" data-toggle="modal" data-target="#Activity-GroupModal">
+        Add </button>
+        <button id="delete" value="del" class="btn btn-danger mb-1 fa fa-trash-o"> Del</button>
+        <button style="visibility:hidden" id="cancel" onclick="cancel()" value="del" class="btn btn-success mb-1 fa fa-undo"> Cancel</button>
     </div>
   </div>
 

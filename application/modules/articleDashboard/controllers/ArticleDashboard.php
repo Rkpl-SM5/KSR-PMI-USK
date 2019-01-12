@@ -86,7 +86,7 @@ class ArticleDashboard extends CI_Controller {
 		{
 		   array_push( $a ,'
        <div class="col-lg-3 col-md-6">
-          <div class="card">
+          <div id="content-activity" class="card content-activity">
             <div class="card-body">
               <div class="stat-widget-one">
                 <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
@@ -101,8 +101,9 @@ class ArticleDashboard extends CI_Controller {
         </div>
           ');
 		}
-    $date=date("d-m-Y");
-		 echo json_encode($a,$date);
+      $date=date("Y-m-d");
+      $result=array($a,$date);
+		 echo json_encode($result);
 	}
 
 

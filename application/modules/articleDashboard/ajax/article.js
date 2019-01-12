@@ -17,17 +17,17 @@
 // });
 
 $jq(document).ready(function() {
-    $jq.ajax({
-        url: BASE_URL+'articleDashboard/selectActivity/',
-        dataType : "json",
-        success: function(data){
-          $jq('#activity-content').html(data[0]);
-          $jq('#nf-date').val(data[1]);
-        },
-        error: function(data){
-          alert("Error Selection;");
-        }
-    });
+  $jq.ajax({
+    url: BASE_URL + 'articleDashboard/selectActivity/',
+    dataType: "json",
+    success: function(data) {
+      $jq('#activity-content').html(data[0]);
+      $jq('#nf-date').val(data[1]);
+    },
+    error: function(data) {
+      alert("Error Selection;");
+    }
+  });
 });
 
 
@@ -53,17 +53,55 @@ $jq("#sort").click(function() {
   alert("sort");
 });
 
+$jq("#content-activity").click(function() {
+  alert("tes");
+});
+
+
+$jq("#delete").click(function() {
+
+  if ($jq(this).attr("value").localeCompare("del") == 0) {
+    $jq(this).val("!del");
+    $jq("#delete").attr("onclick", "deleteKelas()");
+    $jq('#add').css('visibility', 'hidden');
+    $jq('#sort').css('visibility', 'hidden');
+    $jq('#cancel').css('visibility', 'visible');
+    $jq('.content-activity').css('background', 'rgb(219, 215, 219)');
+
+  } else {
+    $jq("#delete").val("del");
+    $jq("#delete").attr("onclick", null);
+    $jq('#add').css('visibility', 'visible');
+    $jq('#sort').css('visibility', 'visible');
+    $jq('#cancel').css('visibility', 'hidden');
+    $jq('.content-activity').css('background', 'white');
+  }
+});
+
+function cancel() {
+  //change add
+  DELETE_KELAS = new Array();
+  $jq("#delete").val("del");
+  $jq("#delete").attr("onclick", null);
+  $jq('#add').css('visibility', 'visible');
+  $jq('#sort').css('visibility', 'visible');
+  $jq('#cancel').css('visibility', 'hidden');
+  $jq('.content-activity').css('background', 'white');
+}
+
+
+
 $jq(".confirm").click(function() {
   $jq.ajax({
-       type: "POST",
-       url: BASE_URL + 'articleDashboard/addActivity',
-       data: $jq('#activity-group-form').serialize(),
-       dataType: "json",
-       success: function(data) {
-          location.reload();
-       },
-       error: function(data) {
-         alert("Please Complete Form");
-       }
-    });
+    type: "POST",
+    url: BASE_URL + 'articleDashboard/addActivity',
+    data: $jq('#activity-group-form').serialize(),
+    dataType: "json",
+    success: function(data) {
+      location.reload();
+    },
+    error: function(data) {
+      alert("Please Complete Form");
+    }
+  });
 });

@@ -75,12 +75,3 @@ function createThumbnail(id, src) {
         $jq(pos).show();
     });
 }
-
-
-function tes() {
-    alert(3);
-}
-
-$jq(document).ready(function ($) {
-    tes();
-});

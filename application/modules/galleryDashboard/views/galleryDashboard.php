@@ -1,5 +1,9 @@
 <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
-
+<script type="text/javascript">
+    <?php
+    include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
+    ?>
+</script>
 
 <div class="row" onload="tes()">
     <div class="col-lg-12">
@@ -234,13 +238,3 @@
         </div>
     </div>
 </div>
-
-<script>
-
-</script>
-
-<script type="text/javascript">
-    <?php
-    include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
-    ?>
-</script>

@@ -1,55 +1,66 @@
-#left-panel{
+#left-panel {
     width: 240px;
-    padding-top:4%;
+    padding-top: 4%;
 }
-.search-card{
+
+.search-card {
     height: 130%;
 }
-.navbar .navbar-nav > li {
+
+.navbar .navbar-nav>li {
     margin: 10px;
 }
-.right-panel .navbar-brand{
+
+.right-panel .navbar-brand {
     width: 140px;
 }
-.right-panel .top-left{
+
+.right-panel .top-left {
     width: 250px;
 }
-.centered-content{
+
+.centered-content {
     margin-left: auto;
     margin-right: auto;
 }
-.noline{
+
+.noline {
     border: none;
 }
 
-.nav-menu{
-    margin-left:20px;
+.nav-menu {
+    margin-left: 20px;
 }
 
-.block{
+.block {
     display: block;
 }
-.container-board{
+
+.container-board {
     padding-top: 2%;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.image-width{
+.image-width {
     min-width: 200px;
     max-width: initial;
 }
-.image-container{
-    overflow:hidden;
+
+.image-container {
+    overflow: hidden;
     max-height: 200px;
     max-width: 200px;
 
-}.image-container-gallery{
-    overflow:hidden;
+}
+
+.image-container-gallery {
+    overflow: hidden;
     max-height: 300px;
     max-width: 300px;
 
 }
-.centered-content .card .zeroPadding{
+
+.centered-content .card .zeroPadding {
     padding: 0;
 }

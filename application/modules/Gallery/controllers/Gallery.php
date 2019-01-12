@@ -29,6 +29,9 @@ class Gallery extends CI_Controller {
 	public function index()
 	{
 		$page=$this->load->view('gallery','',true);
+		
+		$e = $this->Model_lib->SelectQuery("show tables");
+		print_r($e);
 		echo json_encode($page);
 	}
 

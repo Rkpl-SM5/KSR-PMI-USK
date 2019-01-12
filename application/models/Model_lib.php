@@ -6,7 +6,7 @@ class Model_lib extends CI_Model {
         // Call the Model constructor
         parent::__construct();
     }
-     function Save($data,$table,$param)
+    function Save($data,$table,$param)
     {
         $query=$this->db->update($table,$data,array('profile' => $param["profile"],'bio'=>$param["bio"]));
         return $query;

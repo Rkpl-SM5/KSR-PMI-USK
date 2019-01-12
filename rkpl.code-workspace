@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "application/models"
+	},
+	{
+		"path": "application/views"
+	},
+	{
+		"path": "assets"
+	},
+	{
+		"path": "application/modules/galleryDashboard"
+	}
+]
+}

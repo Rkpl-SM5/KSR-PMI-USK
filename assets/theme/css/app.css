@@ -64,3 +64,11 @@
 .centered-content .card .zeroPadding {
     padding: 0;
 }
+
+.input-center {
+    text-align: center;
+}
+
+.img-container {
+    background-size: contain;
+}

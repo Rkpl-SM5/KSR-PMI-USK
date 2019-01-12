@@ -59,40 +59,51 @@ class ArticleDashboard extends CI_Controller {
 	}
 
 	public function addActivity()
-    {
-        $page = $this->load->view('addActivity', '', true);
-        $val = array();
-        $navigator = array();
+  {
+    $tabel="Label_Activity";
+    $data["Label"] = stripslashes($this->db->escape_str($this->input->post("Label")));
+		$data["Make"] = stripslashes($this->db->escape_str($this->input->post("Make")));
 
-        array_push($navigator, "Article");
-		array_push($val, "articleDashboard");
-		
-		array_push($navigator,"Activities");
-		array_push($val,"activities");
+    $result = $this->Model_lib->insert($tabel,$data);
 
-        array_push($navigator, "AddGroupActivity");
-        array_push($val, "add");
-
-        $data = array("page" => $page, "val" => $val, "nav" => $navigator);
-        echo json_encode($data);
-	}
-	
-	
-	public function selectActivity (){
-		$query = $this->Model_lib->SelectQuery("SELECT * FROM lable");
-		// $id=array();
-		// $lable=array();
-		// $made=array();
-		$a="";
-		foreach ($query->result() as $row)
-		{
-			$a.=$row->id_lable;
+    if($result){
+			$err="s";
+			$arr = array('err'=>$err,'klas'=>$data);
+		}else{
+			$err="s";
+			$arr = array('err'=>$err,'klas'=>$data);
 		}
 
-		echo json_encode($a);
+    echo json_encode($arr);
+  }
+
+
+	public function selectActivity (){
+		$query = $this->Model_lib->SelectQuery("SELECT * FROM Label_Activity");
+		$a=array();
+
+		foreach ($query->result() as $row)
+		{
+		   array_push( $a ,'
+       <div class="col-lg-3 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                <div class="stat-content dib">
+                 <div class="stat-text">'.$row->Label.'</div>
+                 <div class="stat-text">'.$row->Make.'</div>
+                 <div class="stat-text">Total: 100</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          ');
+		}
+    $date=date("d-m-Y");
+		 echo json_encode($a,$date);
 	}
 
 
 }
-
- 	

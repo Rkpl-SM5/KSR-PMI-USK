@@ -21,12 +21,11 @@ $jq(document).ready(function() {
         url: BASE_URL+'articleDashboard/selectActivity/',
         dataType : "json",
         success: function(data){
-            alert(JSON.stringify(data));
-                // $('#activity-content').html(data[0]);
+          $jq('#activity-content').html(data[0]);
+          $jq('#nf-date').val(data[1]);
         },
         error: function(data){
-            alert(JSON.stringify(data));
-                // alert("error");
+          alert("Error Selection;");
         }
     });
 });
@@ -54,3 +53,17 @@ $jq("#sort").click(function() {
   alert("sort");
 });
 
+$jq(".confirm").click(function() {
+  $jq.ajax({
+       type: "POST",
+       url: BASE_URL + 'articleDashboard/addActivity',
+       data: $jq('#activity-group-form').serialize(),
+       dataType: "json",
+       success: function(data) {
+          location.reload();
+       },
+       error: function(data) {
+         alert("Please Complete Form");
+       }
+    });
+});

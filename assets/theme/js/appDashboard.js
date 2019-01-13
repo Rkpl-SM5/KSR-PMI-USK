@@ -55,17 +55,26 @@ $jq(document).ready(function ($) {
 function menuNav(x) {
     //variable untu menampung nama dari controller dan fungsi yang akan dipanggil
     var navVal = "";
+    var y = $jq(x).parent();
+    var countNav = y.prevAll();
 
-    for (i = 0; i < navTextVal.length; i++) {
-        if (
-            $jq(x)
-            .data("val")
-            .toString() === navTextVal[i].toString()
-        ) {
-            navVal += navTextVal[i] + "/" + navTextVal[i + 1];
-            break;
-        }
+    var lis = document.getElementById("nav-text").getElementsByTagName("li");
+    var arr = [].slice.call(lis);
+
+    for (let i = 0; i <= countNav.length; i++) {
+        navVal = navVal + arr[i].firstElementChild.dataset.val + "/";
     }
+    sessionStorage.setItem("nav", navVal);
+    // for (i = 0; i < navTextVal.length; i++) {
+    //     if (
+    //         $jq(x)
+    //         .data("val")
+    //         .toString() === navTextVal[i].toString()
+    //     ) {
+    //         navVal += navTextVal[i] + "/" + navTextVal[i + 1];
+    //         break;
+    //     }
+    // }
     update(navVal);
 }
 

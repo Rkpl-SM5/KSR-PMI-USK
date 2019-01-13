@@ -16,19 +16,27 @@
     </div>
 </div>
 <div id="content-gallery" class="row">
-    <div id="img0" class="col-sm-6 col-lg-4 centered-content">
-        <div class="img-gallery card text-black">
-            <div class="card-body text-center img-container" style="background-image: url(assets/theme/images/admin.jpg)">
-            </div>
-            <div class="card-footer">
-                <strong class="card-title mb-3">Profile Card</strong>
-            </div>
-        </div>
-    </div>
+    <?php 
+    $content = "";
+
+    foreach ($data as $row) {
+        $content .= '<div id="' . $row->ID_GALLERY . '" class="col-sm-6 col-lg-4 centered-content">';
+        $content .= '<div class="img-gallery card text-black ">';
+        $content .= '<div class="card-body text-center img-container fade-img" style="background-image: url(Data/images/' . $row->ID_IMAGE . "-" . $row->ID_GALLERY . '.jpg)">';
+        $content .= '</div>';
+        $content .= '<div class="card-footer">';
+        $content .= '<strong class="card-title mb-3">' . $row->TITLE . '</strong>';
+        $content .= '</div>';
+        $content .= '</div>';
+        $content .= '</div>';
+    }
+    echo $content;
+
+    ?>
 </div>
 
 <script type="text/javascript">
     <?php
-    include APPPATH . "modules/galleryDashboard/ajax/zscipts.js";
+    include APPPATH . "modules/galleryDashboard/ajax/initGallery.js";
     ?>
 </script>

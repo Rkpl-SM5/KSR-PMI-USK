@@ -100,3 +100,12 @@
     right: 2%;
     top: 20%;
 }
+
+.active {
+    color: red !important;
+}
+
+.card-image-gallery {
+    margin: 10px 1px 1px 10px !important;
+    padding: 1px 1px 1px 1px !important;
+}

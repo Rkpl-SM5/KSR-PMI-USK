@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Gallery extends CI_Controller
+class SignIn extends CI_Controller
 {
 
     /**
@@ -30,11 +30,7 @@ class Gallery extends CI_Controller
 
     public function index()
     {
-        $query = $this->Model_lib->SelectQuery("SELECT min(ID_IMAGE) as ID_IMAGE ,i.ID_GALLERY,TITLE FROM image as i,gallery as g WHERE i.ID_GALLERY=g.ID_GALLERY GROUP BY ID_GALLERY;");
-        $data = array('data' => $query->result());
-
-        $page = $this->load->view('gallery', $data, true);
-
+        $page = $this->load->view('about', '', true);
         echo json_encode($page);
     }
 

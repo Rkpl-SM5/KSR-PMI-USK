@@ -1,22 +1,22 @@
 {
   "folders": [
     {
-      "path": "."
+        "path": "."
     },
     {
-      "path": "application/models"
+        "path": "application/models"
     },
     {
-      "path": "application/views"
+        "path": "application/views"
     },
     {
-      "path": "assets"
+        "path": "assets"
     },
     {
-      "path": "application/modules"
+        "path": "application/modules"
     },
     {
-      "path": "application/modules/galleryDashboard"
+        "path": "application/modules/Home"
     }
-  ]
+]
 }

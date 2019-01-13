@@ -33,8 +33,8 @@
 
     <script>
         var BASE_URL = '<?php echo base_url(); ?>index.php/';
-        var FLAG_INIT_CHAT=0;
-        var FLAG_INIT_NOTIF=0;
+        var BASE_APP='<?php echo base_url(); ?>';
+
     </script>
 
 </head>

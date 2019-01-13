@@ -91,7 +91,7 @@ class GalleryDashboard extends CI_Controller
 
             $page .= '<div id="' . $row->ID_IMAGE . '" class="col-md-4 image-gallery centered-content">';
             $page .= '<div class="card">';
-            $page .= '<img onclick="show(this)" class="card-img-top" src="Data/images/' . $row->ID_IMAGE . "-" . $row->ID_GALLERY . '.jpg">';
+            $page .= '<img onclick="show(this)" class="card-img-top" src="Data/images/' . $row->ID_IMAGE . '">';
             $page .= '<div class="card-image-gallery">';
             $page .= '<h6 class="card-title mb-3">' . $row->NAME . '</h6>';
             $page .= '</div>';
@@ -131,9 +131,70 @@ class GalleryDashboard extends CI_Controller
 
     public function addNewGallery()
     {
+        $data = $_POST["data"];
+        $query = sprintf("SELECT * FROM Label WHERE Label LIKE '%s'", $data[1]);
+        $Label = $this->Model_lib->SelectQuery($query);
+        $id = "";
+        if ($Label->num_rows() > 0) {
 
-        $data = "sss";
-        echo json_encode($data);
+            $tabel = "gallery";
+            $dataInsert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
+            $dataInsert["ID_LABLE"] = $Label->row()->Id_Label;
+            $dataInsert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
+            $result = $this->Model_lib->insert($tabel, $dataInsert);
 
+            $query = sprintf("SELECT ID_GALLERY FROM gallery WHERE TITLE LIKE '%s' AND MAKE='%s'", $data[0], $data[2]);
+            $id = $this->Model_lib->SelectQuery($query)->row()->ID_GALLERY;
+
+        } else {
+            $tabel = "Label";
+            $dataInsert["Label"] = stripslashes($this->db->escape_str($data[1]));
+            $dataInsert["Make"] = stripslashes($this->db->escape_str($data[2]));
+            $result = $this->Model_lib->insert($tabel, $dataInsert);
+            $dataInsert = "";
+
+            $query = sprintf("SELECT * FROM Label WHERE Label LIKE '%s'", $data[1]);
+            $Label = $this->Model_lib->SelectQuery($query);
+            $tabel = "gallery";
+            $insert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
+            $insert["ID_LABLE"] = $Label->row()->Id_Label;
+            $insert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
+            $result = $this->Model_lib->insert($tabel, $insert);
+
+            $query = sprintf("SELECT ID_GALLERY FROM gallery WHERE TITLE LIKE '%s' AND MAKE='%s'", $data[0], $data[2]);
+            $id = $this->Model_lib->SelectQuery($query)->row()->ID_GALLERY;
+        }
+        // $data = var_dump($_POST);
+        $arr = array('id' => $id);
+        echo json_encode($arr);
+    }
+
+    public function uploadImage($id_gallery)
+    {
+        // $data = var_dump($_FILES["file"]);
+
+        $config['upload_path'] = "./Data/images/"; //path folder file upload
+        $name = $id_gallery . stripslashes($this->db->escape_str($_FILES["file"]['name']));
+        $config['allowed_types'] = 'gif|jpg|jpeg|png'; //type file yang boleh di upload
+        $config['file_name'] = $name;
+
+        //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload', $config); //call library upload
+        if ($this->upload->do_upload("file")) { //upload file
+
+            $tabel = "image";
+            $dataID = array('upload_data' => $this->upload->data());
+
+            $data["ID_IMAGE"] = $dataID['upload_data']['file_name'];
+            $data["ID_GALLERY"] = $id_gallery;
+            $data["NAME"] = $name;
+
+            $result = $this->Model_lib->insert($tabel, $data);
+            $var = "s";
+
+        } else {
+            $var = $this->upload->display_errors('', '');
+        }
+        echo json_encode($var);
     }
 }

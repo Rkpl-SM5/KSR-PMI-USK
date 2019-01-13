@@ -16,22 +16,18 @@
                 <div class="card-body card-block">
                     <div class="form-group">
                         <div class="input-group">
-                            <input class="form-control input-center" placeholder="Title">
+                            <input class="form-control input-center" name="title" placeholder="Title">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <input class="form-control input-center" placeholder="Lable">
+                            <input class="form-control input-center" name="lable" placeholder="Lable">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="input-group">
-                            <input class="form-control input-center" placeholder="Location">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="date" class="form-control input-center">
+                            <input type="date" class="form-control input-center" name="date">
                             <div class="right-content-calender"></div>
                         </div>
                     </div>
@@ -44,7 +40,7 @@
                                         <h1 style="margin: 10% 0 0 0;"><i class="fa fa-photo color-gray icon-app"></i></h1>
                                     </div>
                                 </div>
-                                <input id="btn-add-img" type="file" name="file" style="display:none" multiple>
+                                <input id="btn-add-img" type="file" name="img-file" style="display:none" multiple>
                             </div>
                         </div>
                     </div>

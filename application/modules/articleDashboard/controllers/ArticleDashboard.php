@@ -79,21 +79,24 @@ class ArticleDashboard extends CI_Controller {
 
 
 	public function selectActivity (){
-		$query = $this->Model_lib->SelectQuery("SELECT * FROM Label_Activity");
+    $label = "SELECT DISTINCT ID_LABLE FROM activities";
+    $sql= sprintf("SELECT * FROM Label WHERE Id_Label IN (%s);",$label);
+
+		$query = $this->Model_lib->SelectQuery($sql);
 		$a=array();
 
 		foreach ($query->result() as $row)
 		{
 		   array_push( $a ,'
        <div class="col-lg-3 col-md-6">
-          <div id="content-activity" class="card content-activity">
-            <div class="card-body">
+          <div class="card">
+            <div id="'.$row->Id_Label.'" class="card-body content-activity" onclick="Activity('.$row->Id_Label.')">
               <div class="stat-widget-one">
                 <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
                 <div class="stat-content dib">
                  <div class="stat-text">'.$row->Label.'</div>
                  <div class="stat-text">'.$row->Make.'</div>
-                 <div class="stat-text">Total: 100</div>
+                 <div class="stat-text">Total: 0</div>
                 </div>
               </div>
             </div>
@@ -101,10 +104,30 @@ class ArticleDashboard extends CI_Controller {
         </div>
           ');
 		}
+
       $date=date("Y-m-d");
       $result=array($a,$date);
-		 echo json_encode($result);
+		  echo json_encode($result);
 	}
+
+  public function Activity($id)
+  {
+    $id=array('id'=>$id);
+    $page=$this->load->view('addActivity',$id,true);
+		$val=array();
+		$navigator=array();
+
+		array_push($navigator,"Article");
+		array_push($val,"articleDashboard");
+
+    array_push($navigator,"Activities");
+    array_push($val,"activities");
+
+		$data=array("page"=>$page,"val"=>$val,"nav"=>$navigator);
+		echo json_encode($data);
+  }
+
+
 
 
 }

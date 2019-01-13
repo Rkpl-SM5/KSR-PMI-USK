@@ -32,8 +32,14 @@
           </div>
           <div class="card-body card-block">
             <form id="activity-group-form" action="#" method="post" class="">
-              <div class="form-group"><label for="nf-name" class=" form-control-label">Name</label><input type="text" id="nf-name" name="Label" placeholder="Enter Name Group.." class="form-control"><span class="help-block">Please enter name group</span></div>
-              <div class="form-group"><label for="nf-date" class=" form-control-label">Date</label><input type="date" id="nf-date" name="Make" class="form-control"></div>
+              <div class="form-group"><label for="nf-name" class=" form-control-label">Name</label><input type="text" id="nf-name" name="Label" placeholder="Enter Name Group.." class="form-control"></div>
+
+              <div class="form-group"><label for="nf-date" class=" form-control-label">Date</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input class="form-control" type="date" id="nf-date" name="Make">
+              </div>
+            </div>
             </form>
           </div>
           <div class="card-footer">
@@ -58,6 +64,6 @@
 
 <script>
   function resetForm() {
-    document.getElementById("activity-group").reset();
+    document.getElementById("activity-group-form").reset();
   }
 </script>

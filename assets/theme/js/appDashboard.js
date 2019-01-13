@@ -79,7 +79,7 @@ function menuNav(x) {
 }
 
 /*
- * Function untuk melakukan update pada content-page dan nav-texr
+ * Function untuk melakukan update pada content-page dan nav-text
  * @param z nama controller dan function yang akan dipanggil
  * @return data json
  *   page => halaman html,
@@ -87,6 +87,7 @@ function menuNav(x) {
  *   val => nama kategori
  * */
 function update(z) {
+    nav = z;
     sessionStorage.setItem("nav", z);
     $jq.ajax({
         type: "POST",

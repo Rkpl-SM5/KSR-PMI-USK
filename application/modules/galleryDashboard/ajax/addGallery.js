@@ -28,6 +28,7 @@ $jq(".add-confirm").click(function () {
             dataFile.forEach(function (file) {
                 sendImg(file, data.id);
             });
+            update("galleryDashboard/");
         },
         error: function (data) {
             alert("add new gallery err ");

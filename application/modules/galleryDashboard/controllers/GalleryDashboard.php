@@ -174,7 +174,7 @@ class GalleryDashboard extends CI_Controller
         // $data = var_dump($_FILES["file"]);
 
         $config['upload_path'] = "./Data/images/"; //path folder file upload
-        $name = $id_gallery . stripslashes($this->db->escape_str($_FILES["file"]['name']));
+        $name = $this->stripFileName($id_gallery . stripslashes($this->db->escape_str($_FILES["file"]['name'])));
         $config['allowed_types'] = 'gif|jpg|jpeg|png'; //type file yang boleh di upload
         $config['file_name'] = $name;
 
@@ -185,8 +185,9 @@ class GalleryDashboard extends CI_Controller
             $tabel = "image";
             $dataID = array('upload_data' => $this->upload->data());
 
-            $data["ID_IMAGE"] = $dataID['upload_data']['file_name'];
+            $data["ID_IMAGE"] = $this->stripFileName($dataID['upload_data']['file_name']);
             $data["ID_GALLERY"] = $id_gallery;
+            preg_replace("/[^A-Za-z0-9 ]/", '', $name);
             $data["NAME"] = $name;
 
             $result = $this->Model_lib->insert($tabel, $data);
@@ -196,5 +197,15 @@ class GalleryDashboard extends CI_Controller
             $var = $this->upload->display_errors('', '');
         }
         echo json_encode($var);
+    }
+
+    public function stripFileName($name)
+    {
+        $ext = pathinfo($name, PATHINFO_EXTENSION);
+
+        $file = basename($name, "." . $ext);
+        return preg_replace("/[^A-Za-z0-9 ]/", '_', $file) . "." . $ext;
+
+        // echo $tes;
     }
 }

@@ -60,9 +60,10 @@ class ArticleDashboard extends CI_Controller {
 
 	public function addActivity()
   {
-    $tabel="Label_Activity";
+    $tabel="Label";
     $data["Label"] = stripslashes($this->db->escape_str($this->input->post("Label")));
 		$data["Make"] = stripslashes($this->db->escape_str($this->input->post("Make")));
+    $data["Category"] = "Activity";
 
     $result = $this->Model_lib->insert($tabel,$data);
 
@@ -79,8 +80,7 @@ class ArticleDashboard extends CI_Controller {
 
 
 	public function selectActivity (){
-    $label = "SELECT DISTINCT ID_LABLE FROM activities";
-    $sql= sprintf("SELECT * FROM Label WHERE Id_Label IN (%s);",$label);
+    $sql= sprintf("SELECT * FROM Label WHERE Category='Activity'");
 
 		$query = $this->Model_lib->SelectQuery($sql);
 		$a=array();
@@ -127,6 +127,38 @@ class ArticleDashboard extends CI_Controller {
 		echo json_encode($data);
   }
 
+  public function addFormActivity (){
+
+    $config['upload_path']="./Data/images"; //path folder file upload
+    $new_name = $_FILES["file"]['name'];
+    $config['allowed_types']='gif|jpg|jpeg|png'; //type file yang boleh di upload
+    $config['file_name'] = $new_name;
+
+    $this->load->library('upload',$config);
+    if($this->upload->do_upload("file")){ //upload file
+          $tabel="activities";
+          $data["ID_IMAGE"]=stripslashes($this->db->escape_str($_FILES["file"]['name']));
+          $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
+          $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
+          $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
+          $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
+
+           $result = $this->Model_lib->insert($tabel,$data);
+           $var="s";
+      }else {
+           $var = $this->upload->display_errors('', '');
+      }
+
+    if($result){
+      $err="s";
+      $arr = array('err'=>$err,'klas'=>$data);
+    }else{
+      $err="s";
+      $arr = array('err'=>$err,'klas'=>$data);
+    }
+
+    echo json_encode($arr);
+  }
 
 
 

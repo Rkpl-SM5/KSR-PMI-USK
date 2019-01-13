@@ -147,6 +147,23 @@ $jq(".confirm").click(function() {
   });
 });
 
+
+$jq(".submit-activity").click(function() {
+  $jq.ajax({
+    type: "POST",
+    url: BASE_URL + 'articleDashboard/addFormActivity',
+    data: $jq('#activity-form').serialize(),
+    dataType: "json",
+    success: function(data) {
+      alert(data);
+      // location.reload();
+    },
+    error: function(data) {
+      alert(JSON.stringify(data));
+    }
+  });
+});
+
 function Activity(x) {
   $jq.ajax({
     type: "POST",

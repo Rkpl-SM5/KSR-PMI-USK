@@ -1,4 +1,4 @@
-<link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/theme/css/modules/articleDashboard.css" rel="stylesheet">
 <script type="text/javascript">
   <?php
 include APPPATH . "modules/articleDashboard/ajax/article.js";
@@ -32,22 +32,36 @@ include APPPATH . "modules/articleDashboard/ajax/article.js";
           <div class="card-header">
           </div>
           <div class="card-body card-block">
+
+            <!-- Form add activity -->
             <form id="activity-form" action="#" method="post" class="">
+
+              <input type="hidden" name="Id_Label" value="<?php echo $id; ?>">
+
               <div class="form-group">
                 <label for="nf-title" class=" form-control-label">Title</label>
-                <input type="text" id="nf-name" name="Label" placeholder="Enter Title.." class="form-control">
+                <input type="text" id="nf-name" name="Title" placeholder="Enter Title.." class="form-control">
               </div>
+
               <div class="form-group">
                 <label for="nf-content">Content</label>
                 <textarea class="form-control" rows="4" cols="50" name="Content" form="activity-form"></textarea>
               </div>
+
               <div class="form-group"><label for="nf-date" class=" form-control-label">Date</label>
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                   <input class="form-control" type="date" id="nf-date" name="Date">
                 </div>
               </div>
+
+              <div class="form-group">
+                  <label id="image-label" for="nf-image" class=" form-control-label">Image</label>
+                  <input class="form-control file-control" type="file" id="nf-image" name="file">
+              </div>
+
             </form>
+
           </div>
           <div class="card-footer">
             <button onclick="resetForm()" type="reset" class="btn btn-danger btn-sm">
@@ -57,7 +71,7 @@ include APPPATH . "modules/articleDashboard/ajax/article.js";
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary confirm">Confirm</button>
+          <button type="button" class="btn btn-primary submit-activity">Confirm</button>
         </div>
       </div>
     </div>

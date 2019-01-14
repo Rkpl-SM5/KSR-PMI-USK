@@ -44,13 +44,28 @@ class SearchDashboard extends CI_Controller
 
     public function search()
     {
-        $pendonor = sprintf("select * from pendonor");
+        $kolom = $this->db->escape_str($this->input->post("kolom"));
+        $query = $this->db->escape_str($this->input->post("query"));
+        $where = "WHERE ";
+        for ($i = 0; $i < sizeof($kolom); $i++) {
+            if (strcmp($kolom[$i], "TANGGAL") == 0) {
+                $kolom[$i] = "YEAR(TANGGAL)";
+            }
+            $where .= $kolom[$i] . "='" . $query[$i] . "' ";
+            if ($i + 1 < sizeof($kolom)) {
+                $where .= "AND ";
+
+            }
+        }
+
+        $pendonor = sprintf("select * from pendonor %s", $where);
+        // $tmep = sprintf("select * from pendonor %s", $kolom);
         $val = array();
         $navigator = array();
         $result = $this->Model_lib->SelectQuery($pendonor)->result();
 
         $page = $this->generateSurfacePendonor($result);
-        $data = array("page" => $page, "val" => $val, "nav" => $navigator);
+        $data = array("page" => $page, "val" => $where, "nav" => $navigator);
 
         echo json_encode($data);
     }

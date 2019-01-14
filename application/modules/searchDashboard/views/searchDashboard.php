@@ -1,3 +1,5 @@
+<link href="<?php echo base_url(); ?>assets/theme/css/modules/search.css" rel="stylesheet">
+
 <div id="search-content" class="row">
     <script type="text/javascript">
         <?php
@@ -10,23 +12,22 @@
                 <div class="card-body">
                     <form id="form-search" class="form-horizontal" onkeypress="return event.keyCode != 13">
                         <div class="row form-group">
-                            <div class="col col-md-8 centered-content">
-                                <div class="input-group">
-                                    <input type="text" id="input1-group2" name="input1-group2" placeholder="Golongan Darah"
-                                        class="form-control">
-                                    <div class="input-group-btn">
+                            <div id="search-input-add" class="col col-md-8 centered-content">
+                                <div class="input-group spaceBefore-30">
+                                    <input type="text" name="search" placeholder="Golongan Darah" class="form-control form-data" data-kolom="GOLONGAN_DARAH">
+                                    <div class="input-group-btn ">
                                         <div class="btn-group">
                                             <button type="button" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false" class="dropdown-toggle btn btn-primary"></button>
                                             <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                <button type="button" tabindex="0" class="dropdown-item">Golongan Darah</button>
-                                                <button type="button" tabindex="0" class="dropdown-item">Tempat Tinggal</button>
-                                                <button type="button" tabindex="0" class="dropdown-item">Tahun</button>
-                                                <button type="button" tabindex="0" class="dropdown-item">Nama</button>
+                                                <button onclick="setVal('GOLONGAN_DARAH',this);" type="button" tabindex="0" class="dropdown-item">Golongan Darah</button>
+                                                <button onclick="setVal('ALAMAT',this);" type="button" tabindex="0" class="dropdown-item">Tempat Tinggal</button>
+                                                <button onclick="setVal('TANGGAL',this);" type="button" tabindex="0" class="dropdown-item">Tahun</button>
+                                                <button onclick="setVal('NAMA',this);" type="button" tabindex="0" class="dropdown-item">Nama</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="input-group-addon add-search"><i class="fa fa-plus"></i></div>
+                                    <div id="btn-input" class="input-group-addon add-search"  onclick="addInput(this)"><i class="fa fa-plus"></i></div>
                                 </div>
                             </div>
                         </div>

@@ -57,7 +57,7 @@ include APPPATH . "modules/articleDashboard/ajax/article.js";
 
               <div class="form-group">
                     <label id="image-label" for="nf-image" class=" form-control-label">Image</label>
-                  <input class="form-control-file" type="file" id="nf-image" name="Image" accept="image/png, image/jpeg">
+                  <input class="form-control-file" type="file" id="nf-image" name="file" accept="image/png, image/jpeg">
               </div>
 
             </form>

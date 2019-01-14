@@ -129,43 +129,51 @@ class ArticleDashboard extends CI_Controller {
 
   public function addFormActivity (){
 
-    $config['upload_path'] = "./Data/images/"; //path folder file upload
-    $name = stripslashes($this->db->escape_str($_FILES["Image"]['name']));
-    $config['allowed_types'] = 'gif|jpg|jpeg|png'; //type file yang boleh di upload
-    $config['file_name'] = $name;
 
+    $tabel="activities";
+
+    $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
+    $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
+    $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
+    $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
+
+    $result = $this->Model_lib->insert($tabel,$data);
+
+    $query = $this->Model_lib->SelectQuery("SELECT ID_ACTIVITIES FROM $tabel WHERE ID_ACTIVITIES=(SELECT MAX(ID_ACTIVITIES) FROM $tabel) ");
+    foreach ($query->result() as $row)
+		{
+       $id = $row->ID_ACTIVITIES;
+    }
+
+    if($result){
+      $err="s";
+      $arr = array('err'=>$err,'klas'=>$data);
+    }else{
+      $err="s";
+      $arr = array('err'=>$err,'klas'=>$data);
+    }
+
+    echo json_encode($id);
+  }
+
+  public function do_upload($a)
+  {
+    $config['upload_path']="./Data/images"; //path folder file upload
+    $new_name =$_FILES["file"]['name'];
+    $config['allowed_types']='gif|jpg|jpeg|png'; //type file yang boleh di upload
+    $config['file_name'] = $new_name;
     //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-    $this->load->library('upload', $config); //call library upload
-    if ($this->upload->do_upload("Image")) { //upload file
-
-        $tabel = "activities";
-        $dataID = array('upload_data' => $this->upload->data());
-        $data["ID_IMAGE"] = $this->stripFileName($dataID['upload_data']['file_name']);
-        $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
-        $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
-        $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
-        $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
-
-        $result = $this->Model_lib->insert($tabel, $data);
-        $var = "s";
-
-    } else {
-        $var = $this->upload->display_errors('', '');
+    $this->load->library('upload',$config); //call library upload
+    if($this->upload->do_upload("file")){ //upload file
+         $tabel="activities";
+         $dataID = array('upload_data' => $this->upload->data());
+         $data=$dataID['upload_data']['file_name'];
+         $result=$this->Model_lib->SelectQuery("UPDATE $tabel SET ID_IMAGE =$data WHERE ID_ACTIVITIES=$a");
+         $var="s";
+    }else {
+         $var = $this->upload->display_errors('', '');
     }
     echo json_encode($var);
-
-
-    // if($this->upload->do_upload("file")){ //upload file
-    //       $tabel="activities";
-    //       $dataID = array('upload_data' => $this->upload->data());
-          // $data["ID_IMAGE"]= $dataID['upload_data']['file_name'];
-          // $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
-          // $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
-          // $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
-          // $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
-    //
-    //        $result = $this->Model_lib->insert($tabel,$data);
-
   }
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 13, 2019 at 12:08 AM
+-- Generation Time: Jan 14, 2019 at 11:13 AM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -29,10 +29,32 @@ SET time_zone = "+00:00";
 CREATE TABLE `activities` (
   `ID_ACTIVITIES` int(11) NOT NULL,
   `TITLE` varchar(100) NOT NULL,
+  `CONTENT` text NOT NULL,
   `DATE` date NOT NULL,
   `ID_LABLE` int(11) NOT NULL,
-  `ID_IMAGE` int(11) NOT NULL
+  `ID_IMAGE` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`ID_ACTIVITIES`, `TITLE`, `CONTENT`, `DATE`, `ID_LABLE`, `ID_IMAGE`) VALUES
+(1, 'menacari apa aja', 'sadjoadjiksdjajdiojdiaosdjiosjdioadjiosjdojaoisdjiodjoadjsiodjioasdjioajsojdioajdiosjdioaojsaiodjsoaidjiojdijio iosja djsaiodjaio sjdiosaj doisj iojao josijdo jsodj oijsdao joiad jsiodjjaiosj dojsodjosdjoijsadiosjd ioasjdiojasdjoasjdjsaiojosidjios j jsodjosa j ijdios iojdjaoj sojoj soj ojs sj jod sjdo jsoajd ojdo jsoj josdjoidjs oj osaj osajs iojdos jidj saiodjosaidjoisjd oaj', '2019-01-15', 1, '12121'),
+(2, 'tea party', 'asdasddaad', '2019-01-14', 1, '12121'),
+(3, 'tes', 'aoasodkaosdkoa', '2019-01-02', 2, '34343'),
+(11, 'sadsadsadad', 'sadsadsd', '2019-01-14', 1, ''),
+(12, 'sadada', 'dasdasdsad', '2019-01-14', 1, ''),
+(13, 'asdada', 'asdadsad', '2019-01-14', 1, ''),
+(14, 'asdasd', 'sadadasd', '2019-01-14', 1, ''),
+(15, 'asdasda', 'sddasdadd', '2019-01-14', 1, ''),
+(16, 'asdada', 'sdasdsada', '2019-01-14', 1, ''),
+(17, 'sadsadsad', 'sadadsad', '2019-01-14', 1, ''),
+(18, 'sdasd', 'asdad', '2019-01-14', 1, ''),
+(19, 'sadda', 'sdasdasdasd', '2019-01-14', 1, ''),
+(20, 'asdad', 'sadsadsad', '2019-01-14', 1, ''),
+(21, 'asdadad', 'sadsaddsad', '2019-01-14', 1, ''),
+(22, 'sadsadsad', 'sadsadadsad', '2019-01-14', 1, '');
 
 -- --------------------------------------------------------
 
@@ -87,8 +109,19 @@ CREATE TABLE `image` (
 CREATE TABLE `Label` (
   `Id_Label` int(11) NOT NULL,
   `Label` varchar(100) NOT NULL,
-  `Make` date NOT NULL
+  `Make` date NOT NULL,
+  `Category` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Label`
+--
+
+INSERT INTO `Label` (`Id_Label`, `Label`, `Make`, `Category`) VALUES
+(1, 'Andika', '2019-01-16', 'Activity'),
+(2, 'Zikri', '2019-01-15', 'Activity'),
+(3, 'tes', '2019-01-13', ''),
+(4, 'andika2', '2019-01-13', 'Activity');
 
 -- --------------------------------------------------------
 
@@ -110,7 +143,7 @@ INSERT INTO `Label_Activity` (`Id_Label`, `Label`, `Make`) VALUES
 (1, 'Andika', '2019-01-16'),
 (2, 'Zikri', '2019-01-15'),
 (5, 'andika', '2019-01-17'),
-(7, '', '0000-00-00');
+(8, 'testing', '2019-01-13');
 
 -- --------------------------------------------------------
 
@@ -193,7 +226,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ID_ACTIVITIES` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_ACTIVITIES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `admin`
 --
@@ -208,12 +241,12 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `Label`
 --
 ALTER TABLE `Label`
-  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `Label_Activity`
 --
 ALTER TABLE `Label_Activity`
-  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `Label_News`
 --

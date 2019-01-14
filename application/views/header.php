@@ -56,13 +56,15 @@
                         <a href="#" class="menu-app" data-val="donorDashboard"> <i class="menu-icon fa fa-tint"></i>Donor</a>
                     </li>
 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li>
+                        <a href="#" class="menu-app" data-val="articleDashboard/activities"> <i class="menu-icon fa fa-file-text"></i>Activities
+                        </a>
+                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="menu-icon fa fa-file-text"></i>Article</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-map-o"></i><a href="#" class="menu-app" data-val="articleDashboard/activities">Activities</a></li>
                             <li><i class="menu-icon fa fa-street-view"></i><a href="#" class="menu-app" data-val="articleDashboard/news">News</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
 
                     <li>

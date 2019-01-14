@@ -13,12 +13,6 @@
         },
         {
             "path": "application/modules"
-        },
-        {
-            "path": "application/modules/Home"
-        },
-        {
-            "path": "application/modules/SignIn"
         }
     ],
     "settings": {}

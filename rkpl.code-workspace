@@ -16,6 +16,9 @@
         },
         {
             "path": "application/modules/Activities"
+        },
+        {
+            "path": "application/modules/searchDashboard"
         }
     ],
     "settings": {}

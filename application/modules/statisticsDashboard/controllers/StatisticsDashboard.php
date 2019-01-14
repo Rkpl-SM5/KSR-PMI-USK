@@ -67,4 +67,21 @@ class StatisticsDashboard extends CI_Controller
         echo json_encode($data);
     }
 
+    public function getAllTheTime()
+    {
+
+    }
 }
+
+
+/***
+ * total ~ select count(nama),LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) as gol  from pendonor group by LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) ORDER BY LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1); 
+ * total - select count(nama),LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) as gol  from pendonor where GOLONGAN_DARAH like '%-' group by LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) ORDER BY LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1);
+ * total + select count(nama),LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) as gol  from pendonor where GOLONGAN_DARAH like '%+' group by LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1) ORDER BY LEFT(GOLONGAN_DARAH,length(GOLONGAN_DARAH)-1);
+ *
+ * 
+ * 
+ * year : tambah where YEAR(TANGGAL)=tahun
+ *          ex = where YEAR(TANGGAL)=2019
+ * 
+ * /

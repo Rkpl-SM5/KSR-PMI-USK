@@ -1,3 +1,9 @@
+<!-- <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet"> -->
+<script type="text/javascript">
+    <?php
+    include APPPATH . "modules/donorDashboard/ajax/donor.js";
+    ?>
+</script>
 <div class="row">
     <div class="col-lg-8 centered-content">
         <div class="card">
@@ -5,13 +11,13 @@
                 <strong>Donor</strong>
             </div>
             <div class="card-body card-block">
-                <form class="form-horizontal">
+                <form id="form-donor" class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-12">
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-                                <input type="text" id="input1-group3" name="input1-group3" placeholder="Nama" class="form-control">
+                                <input type="text" name="nama" placeholder="Nama" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -20,7 +26,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-                                <input type="text" id="input1-group3" name="input1-group3" placeholder="Kontak" class="form-control">
+                                <input type="text" name="kontak" placeholder="Kontak" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -29,7 +35,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-                                <input type="text" id="input1-group3" name="input1-group3" placeholder="Alamat" class="form-control">
+                                <input type="text" name="alamat" placeholder="Alamat" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -38,7 +44,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-								<select name="input1-group3" class="form-control">
+								<select name="jenisKelamin" class="form-control">
 									<option disabled selected value>Jenis Kelamin</option>
 									<option value="L">Laki-Laki</option>
 									<option value="P">Perempuan</option>
@@ -51,7 +57,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-                                <input type="email" id="input1-group3" name="input1-group3" placeholder="Email" class="form-control">
+                                <input type="text" name="email" placeholder="Email" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -60,8 +66,8 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-                                <input type="text" id="input1-group3" name="input1-group3" placeholder="Kegiatan" class="form-control">
-								<input type="date" id="input1-group3" name="input1-group3" placeholder="Tgl_kegiatan" class="form-control">
+                                <input type="text" name="kegiatan" placeholder="Kegiatan" class="form-control">
+								<input type="date" name="tanggal" placeholder="Tgl_kegiatan" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -70,7 +76,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                 </div>
-								<select name="input1-group3" class="form-control">
+								<select name="golonganDarah" class="form-control">
 									<option disabled selected value>Golongan Darah</option>
 									<option value="O-">O-</option>
 									<option value="O+">O+</option>
@@ -89,7 +95,7 @@
                             <div class="input-group">
                                 <div class="input-group-btn">
                                     <div class="btn-group">
-									<input type="submit" class="btn btn-success btn-block" name="card-header" value="Donor" />
+									<input type="button" class="btn btn-success btn-block btn-donor" name="card-header" value="Donor" />
                                     </div>
                                 </div>
                             </div>

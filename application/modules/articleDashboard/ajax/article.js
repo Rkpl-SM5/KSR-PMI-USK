@@ -148,42 +148,47 @@ $jq(".confirm").click(function () {
 });
 
 
-$jq(".submit-activity").click(function() {
-  $jq.ajax({
-    type: "POST",
-    url: BASE_URL + 'articleDashboard/addFormActivity',
-    data: $jq('#activity-form').serialize(),
-    dataType: "json",
-    success: function(data) {
-     // location.reload();
-     upload(data);
-    },
-    error: function(data) {
-      alert(JSON.stringify(data));
-    }
-  });
+$jq(".submit-activity").click(function () {
+    $jq.ajax({
+        type: "POST",
+        url: BASE_URL + 'articleDashboard/addFormActivity',
+        data: $jq('#activity-form').serialize(),
+        dataType: "json",
+        success: function (data) {
+            // location.reload();
+            upload(data);
+        },
+        error: function (data) {
+            alert(JSON.stringify(data));
+        }
+    });
 });
 
-function upload(y) {
-  var x = $jq('#activity-form');
-  var input = $jq(x).find(':input');
-  var arr = [].slice.call(input);
 
-  $jq.ajax({
-          url: BASE_URL+'articleDashboard/do_upload/'+y,
-          type:"post",
-          data:new FormData(arr[4].files[0]),
-          processData:false,
-          contentType:false,
-          cache:false,
-          async:false,
-          success: function(data){
-              alert(data);
-          },
-          error: function(data){
-              alert(JSON.stringify(data));
-          }
-     });
+function upload(y) {
+    var x = $jq('#activity-form');
+    var input = $jq(x).find(':input');
+    var arr = [].slice.call(input);
+
+    let data = new FormData();
+    data.set('file', arr[4].files[0]);
+    // console.log(data.get('file'));
+
+    $jq.ajax({
+        url: BASE_URL + 'articleDashboard/do_upload/' + y,
+        type: "post",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        async: false,
+        success: function (data) {
+            alert(data);
+        },
+        error: function (data) {
+            alert(JSON.stringify(data));
+        }
+    });
 
 }
 

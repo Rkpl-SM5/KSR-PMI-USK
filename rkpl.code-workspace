@@ -15,10 +15,7 @@
             "path": "application/modules"
         },
         {
-            "path": "application/modules/statisticsDashboard"
-        },
-        {
-            "path": "application/modules/articleDashboard"
+            "path": "application/modules/Activities"
         }
     ],
     "settings": {}

@@ -135,52 +135,67 @@ class ArticleDashboard extends CI_Controller
     {
 
 
-    $tabel="activities";
+        $tabel = "activities";
 
-    $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
-    $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
-    $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
-    $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
+        $data["TITLE"] = stripslashes($this->db->escape_str($this->input->post("Title")));
+        $data["CONTENT"] = stripslashes($this->db->escape_str($this->input->post("Content")));
+        $data["DATE"] = stripslashes($this->db->escape_str($this->input->post("Date")));
+        $data["ID_LABLE"] = stripslashes($this->db->escape_str($this->input->post("Id_Label")));
 
-    $result = $this->Model_lib->insert($tabel,$data);
+        $result = $this->Model_lib->insert($tabel, $data);
 
-    $query = $this->Model_lib->SelectQuery("SELECT ID_ACTIVITIES FROM $tabel WHERE ID_ACTIVITIES=(SELECT MAX(ID_ACTIVITIES) FROM $tabel) ");
-    foreach ($query->result() as $row)
-		{
-       $id = $row->ID_ACTIVITIES;
+        $query = $this->Model_lib->SelectQuery("SELECT ID_ACTIVITIES FROM $tabel WHERE ID_ACTIVITIES=(SELECT MAX(ID_ACTIVITIES) FROM $tabel) ");
+        foreach ($query->result() as $row) {
+            $id = $row->ID_ACTIVITIES;
+        }
+
+        if ($result) {
+            $err = "s";
+            $arr = array('err' => $err, 'klas' => $data);
+        } else {
+            $err = "s";
+            $arr = array('err' => $err, 'klas' => $data);
+        }
+
+        echo json_encode($id);
     }
 
-    if($result){
-      $err="s";
-      $arr = array('err'=>$err,'klas'=>$data);
-    }else{
-      $err="s";
-      $arr = array('err'=>$err,'klas'=>$data);
+    public function do_upload($id_article)
+    {
+      // $data = var_dump($_FILES["file"]);
+        $date = new DateTime();
+        $hash = $date->getTimestamp();
+
+        $config['upload_path'] = "./Data/images/"; //path folder file upload
+        $name = $hash . $this->stripFileName($id_article . stripslashes($this->db->escape_str($_FILES["file"]['name'])));
+        $config['allowed_types'] = 'gif|jpg|jpeg|png'; //type file yang boleh di upload
+        $config['file_name'] = $name;
+
+      //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload', $config); //call library upload
+        if ($this->upload->do_upload("file")) { //upload file
+
+            $tabel = "activities";
+
+            $dataID = array('upload_data' => $this->upload->data());
+            $data["ID_IMAGE"] = $this->stripFileName($dataID['upload_data']['file_name']);
+            $where = sprintf("ID_ACTIVITIES='%s'", $id_article);
+            $result = $this->Model_lib->Update($tabel, $data, $where);
+            $var = "s" . $result;
+
+        } else {
+            $var .= $this->upload->display_errors('', '');
+        }
+        echo json_encode($var);
     }
 
-    echo json_encode($id);
-  }
+    public function stripFileName($name)
+    {
+        $ext = pathinfo($name, PATHINFO_EXTENSION);
 
-  public function do_upload($a)
-  {
-    $config['upload_path']="./Data/images"; //path folder file upload
-    $new_name =$_FILES["file"]['name'];
-    $config['allowed_types']='gif|jpg|jpeg|png'; //type file yang boleh di upload
-    $config['file_name'] = $new_name;
-    //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-    $this->load->library('upload',$config); //call library upload
-    if($this->upload->do_upload("file")){ //upload file
-         $tabel="activities";
-         $dataID = array('upload_data' => $this->upload->data());
-         $data=$dataID['upload_data']['file_name'];
-         $result=$this->Model_lib->SelectQuery("UPDATE $tabel SET ID_IMAGE =$data WHERE ID_ACTIVITIES=$a");
-         $var="s";
-    }else {
-         $var = $this->upload->display_errors('', '');
+        $file = basename($name, "." . $ext);
+        return preg_replace("/[^A-Za-z0-9 ]/", '_', $file) . "." . $ext;
+
+        // echo $tes;
     }
-    echo json_encode($var);
-  }
-
-
-
 }

@@ -1,7 +1,7 @@
 <link href="<?php echo base_url(); ?>assets/theme/css/modules/galleryDashboard.css" rel="stylesheet">
 <script type="text/javascript">
   <?php
-     include APPPATH . "modules/articleDashboard/ajax/article.js";
+    include APPPATH . "modules/articleDashboard/ajax/article.js";
     ?>
 </script>
 
@@ -9,7 +9,7 @@
   <div class="card">
     <div id="editable" class="card-body">
 
-        <button id="sort" class="btn btn-primary mb-1 fa fa-sort"> Sort</button>
+        <!-- <button id="sort" class="btn btn-primary mb-1 fa fa-sort"> Sort</button> -->
         <button id="add" class="btn btn-primary mb-1 fa fa-plus" data-toggle="modal" data-target="#Activity-GroupModal">
         Add </button>
         <button id="delete" value="del" class="btn btn-danger mb-1 fa fa-trash-o"> Del</button>

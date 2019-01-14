@@ -23,14 +23,15 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		$this->_public_view= $this->config->item('public_view');
 		$this->load->helper('url');
-		$this->load->model('Model_lib');
+		// $this->load->model('Model_lib');
 	}
 	public function index()
 	{
-		if(!isset($_SESSION["akun"])){
+		/*if(!isset($_SESSION["akun"])){
 			redirect('/signIn');
 		}else{
 			$this->load->view('header',$_SESSION["data"]);
-		}
+		}*/
+		$this->load->view('wrapper');
 	}
 }

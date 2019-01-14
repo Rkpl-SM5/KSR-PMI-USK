@@ -1,0 +1,70 @@
+#sort {
+    float: left;
+}
+
+#add {
+    float: right;
+}
+
+.add-image {
+    cursor: pointer;
+    -webkit-transition-property: width;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: 0.1s;
+    /* Standard syntax */
+    transition-property: width;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0.1s;
+}
+
+
+.add-image:hover .icon-app {
+    font-size: 32pt;
+}
+
+.add-image:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+.img-add {
+    height: 120px;
+}
+
+.img-gallery {
+    height: 250px;
+    background-repeat: no-repeat;
+}
+
+.fade-img {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.fade-img:hover::after {
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    line-height: 183px;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    font-family: "FontAwesome";
+    font-size: 25pt;
+    content: "\f07c";
+
+    text-align: center;
+
+    color: whitesmoke;
+    background: rgba(7, 7, 7, 0.5);
+}
+
+
+
+/* .hide {
+    display: none !important;
+} */

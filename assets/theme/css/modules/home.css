@@ -1,0 +1,25 @@
+.img-surface {
+    width: 100%;
+    /*or 70%, or what you want*/
+    height: 610px;
+    /*or 70%, or what you want*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* opacity: 0.4; */
+
+
+}
+
+.centered-content {
+    text-align: center;
+}
+
+#contact {
+    font-size: 18pt;
+    z-index: 10;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+}

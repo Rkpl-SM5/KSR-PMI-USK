@@ -34,7 +34,7 @@
                        membuktikan dedikasi dalam menjalankan misi kemanusiaan. Organisasi ini memiliki satu Unit Markas sebagai sekretariat di Gelanggang
                        Mahasiswa Unsyiah dan memiliki Satu Unit Pos Pelayanan Pertama Pertama (P4) dan Gudang yang terletak di Tower Air kampus Unsyiah</p>
                 </div>
-                <div class="tab-pane fade" id="custom-nav-profile" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
+                <div style="text-align: justify;" class="tab-pane fade" id="custom-nav-profile" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
                     <br><h5>Visi :</h5><br>
                     <p>Relawan Unsyiah siap menyediakan dan memberikan pelayanan kepalangmerahan dengan cepat dan tepat.</p>
                     <h5>Misi :</h5>

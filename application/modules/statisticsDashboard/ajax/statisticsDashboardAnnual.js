@@ -1,14 +1,23 @@
 $jq(document).ready(function () {
+    $jq("#input-tahun").val((new Date()).getFullYear());
+    createChart($jq("#input-tahun").val());
+});
+
+$jq(".btn-stat").click(function () {
+    var x = $jq("#input-tahun").val();
+    if (parseInt(x)) {
+        createChart(x);
+    }
+});
+
+function createChart(x) {
 
     $jq.ajax({
         type: "POST",
-        url: BASE_URL + 'statisticsDashboard/getAllTheTime/',
+        url: BASE_URL + 'statisticsDashboard/getAnnualTime/' + x,
         dataType: "json",
         success: function (data) {
-            // console.log(data.min.B);
             var dataAbs = toArray(data.total);
-            // console.log(dataAbs);
-            // console.log(dataAbs);
             var dataMin = toArray(data.min);
             var dataPls = toArray(data.plus);
 
@@ -17,11 +26,11 @@ $jq(document).ready(function () {
                 data: {
                     labels: ["A", "AB", "B", "O"],
                     datasets: [{
-                        label: "negative(-)",
+                        label: "min(-)",
                         backgroundColor: "red",
                         data: dataMin
                     }, {
-                        label: "positive(+)",
+                        label: "min(+)",
                         backgroundColor: "blue",
                         data: dataPls
                     }, {
@@ -42,8 +51,7 @@ $jq(document).ready(function () {
             console.log(data);
         }
     });
-});
-
+}
 
 function toArray(array) {
     var value = Array();

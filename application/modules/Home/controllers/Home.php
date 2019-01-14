@@ -30,7 +30,16 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $page = $this->load->view('home', '', true);
+        $allTime = sprintf("select count(ID) as total from pendonor");
+        $year = sprintf("select count(ID) as total from pendonor  where YEAR(TANGGAL)='%s';", date("Y"));
+
+
+        $resultAll = $this->Model_lib->SelectQuery($allTime)->row();
+        $resultYear = $this->Model_lib->SelectQuery($year)->row();
+
+        $data = array("all" => $resultAll, "year" => $resultYear);
+
+        $page = $this->load->view('home', $data, true);
         echo json_encode($page);
     }
 

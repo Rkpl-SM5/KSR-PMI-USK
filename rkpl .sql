@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 14, 2019 at 11:13 AM
+-- Generation Time: Jan 14, 2019 at 06:05 PM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -32,29 +32,8 @@ CREATE TABLE `activities` (
   `CONTENT` text NOT NULL,
   `DATE` date NOT NULL,
   `ID_LABLE` int(11) NOT NULL,
-  `ID_IMAGE` varchar(11) NOT NULL
+  `ID_IMAGE` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `activities`
---
-
-INSERT INTO `activities` (`ID_ACTIVITIES`, `TITLE`, `CONTENT`, `DATE`, `ID_LABLE`, `ID_IMAGE`) VALUES
-(1, 'menacari apa aja', 'sadjoadjiksdjajdiojdiaosdjiosjdioadjiosjdojaoisdjiodjoadjsiodjioasdjioajsojdioajdiosjdioaojsaiodjsoaidjiojdijio iosja djsaiodjaio sjdiosaj doisj iojao josijdo jsodj oijsdao joiad jsiodjjaiosj dojsodjosdjoijsadiosjd ioasjdiojasdjoasjdjsaiojosidjios j jsodjosa j ijdios iojdjaoj sojoj soj ojs sj jod sjdo jsoajd ojdo jsoj josdjoidjs oj osaj osajs iojdos jidj saiodjosaidjoisjd oaj', '2019-01-15', 1, '12121'),
-(2, 'tea party', 'asdasddaad', '2019-01-14', 1, '12121'),
-(3, 'tes', 'aoasodkaosdkoa', '2019-01-02', 2, '34343'),
-(11, 'sadsadsadad', 'sadsadsd', '2019-01-14', 1, ''),
-(12, 'sadada', 'dasdasdsad', '2019-01-14', 1, ''),
-(13, 'asdada', 'asdadsad', '2019-01-14', 1, ''),
-(14, 'asdasd', 'sadadasd', '2019-01-14', 1, ''),
-(15, 'asdasda', 'sddasdadd', '2019-01-14', 1, ''),
-(16, 'asdada', 'sdasdsada', '2019-01-14', 1, ''),
-(17, 'sadsadsad', 'sadadsad', '2019-01-14', 1, ''),
-(18, 'sdasd', 'asdad', '2019-01-14', 1, ''),
-(19, 'sadda', 'sdasdasdasd', '2019-01-14', 1, ''),
-(20, 'asdad', 'sadsadsad', '2019-01-14', 1, ''),
-(21, 'asdadad', 'sadsaddsad', '2019-01-14', 1, ''),
-(22, 'sadsadsad', 'sadsadadsad', '2019-01-14', 1, '');
 
 -- --------------------------------------------------------
 
@@ -86,7 +65,8 @@ INSERT INTO `admin` (`ID_USER`, `EMAIL`, `NAME`, `PASS`, `REGISTERED`) VALUES
 CREATE TABLE `gallery` (
   `ID_GALLERY` int(11) NOT NULL,
   `TITLE` varchar(100) NOT NULL,
-  `ID_LABLE` int(11) NOT NULL
+  `ID_LABLE` int(11) NOT NULL,
+  `MAKE` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -96,8 +76,9 @@ CREATE TABLE `gallery` (
 --
 
 CREATE TABLE `image` (
-  `ID_IMAGE` int(11) NOT NULL,
-  `ID_GALLERY` int(11) NOT NULL
+  `ID_IMAGE` varchar(255) NOT NULL,
+  `ID_GALLERY` int(11) NOT NULL,
+  `NAME` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -112,16 +93,6 @@ CREATE TABLE `Label` (
   `Make` date NOT NULL,
   `Category` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Label`
---
-
-INSERT INTO `Label` (`Id_Label`, `Label`, `Make`, `Category`) VALUES
-(1, 'Andika', '2019-01-16', 'Activity'),
-(2, 'Zikri', '2019-01-15', 'Activity'),
-(3, 'tes', '2019-01-13', ''),
-(4, 'andika2', '2019-01-13', 'Activity');
 
 -- --------------------------------------------------------
 
@@ -143,7 +114,7 @@ INSERT INTO `Label_Activity` (`Id_Label`, `Label`, `Make`) VALUES
 (1, 'Andika', '2019-01-16'),
 (2, 'Zikri', '2019-01-15'),
 (5, 'andika', '2019-01-17'),
-(8, 'testing', '2019-01-13');
+(7, '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -171,6 +142,31 @@ CREATE TABLE `news` (
   `ID_IMAGE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pendonor`
+--
+
+CREATE TABLE `pendonor` (
+  `ID` int(11) NOT NULL,
+  `NAMA` varchar(255) NOT NULL,
+  `KONTAK` varchar(255) NOT NULL,
+  `ALAMAT` varchar(255) NOT NULL,
+  `JENIS_KELAMIN` varchar(255) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `KEGIATAN` varchar(255) NOT NULL,
+  `TANGGAL` date NOT NULL,
+  `GOLONGAN_DARAH` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pendonor`
+--
+
+INSERT INTO `pendonor` (`ID`, `NAMA`, `KONTAK`, `ALAMAT`, `JENIS_KELAMIN`, `EMAIL`, `KEGIATAN`, `TANGGAL`, `GOLONGAN_DARAH`) VALUES
+(6, 'zikri', '088', 'linke', 'L', 'muammar.clasic@gmail.com', 'sds', '2019-01-01', 'A-');
+
 --
 -- Indexes for dumped tables
 --
@@ -189,10 +185,18 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `EMAIL_U` (`EMAIL`);
 
 --
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`ID_GALLERY`),
+  ADD KEY `fk_id_lable` (`ID_LABLE`);
+
+--
 -- Indexes for table `image`
 --
 ALTER TABLE `image`
-  ADD PRIMARY KEY (`ID_IMAGE`);
+  ADD PRIMARY KEY (`ID_IMAGE`),
+  ADD KEY `fk_id_gallery` (`ID_GALLERY`);
 
 --
 -- Indexes for table `Label`
@@ -219,6 +223,12 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`ID_NEWS`);
 
 --
+-- Indexes for table `pendonor`
+--
+ALTER TABLE `pendonor`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -226,27 +236,27 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ID_ACTIVITIES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID_ACTIVITIES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `image`
+-- AUTO_INCREMENT for table `gallery`
 --
-ALTER TABLE `image`
-  MODIFY `ID_IMAGE` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `gallery`
+  MODIFY `ID_GALLERY` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `Label`
 --
 ALTER TABLE `Label`
-  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `Label_Activity`
 --
 ALTER TABLE `Label_Activity`
-  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `Label_News`
 --
@@ -257,6 +267,27 @@ ALTER TABLE `Label_News`
 --
 ALTER TABLE `news`
   MODIFY `ID_NEWS` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pendonor`
+--
+ALTER TABLE `pendonor`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD CONSTRAINT `fk_id_lable` FOREIGN KEY (`ID_LABLE`) REFERENCES `Label` (`Id_Label`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `fk_id_gallery` FOREIGN KEY (`ID_GALLERY`) REFERENCES `gallery` (`ID_GALLERY`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

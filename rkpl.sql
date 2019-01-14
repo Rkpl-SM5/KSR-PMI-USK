@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2018 at 05:37 PM
+-- Generation Time: Jan 13, 2019 at 12:08 AM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -81,22 +81,48 @@ CREATE TABLE `image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lable`
+-- Table structure for table `Label`
 --
 
-CREATE TABLE `lable` (
-  `ID_LABEL` int(11) NOT NULL,
-  `LABLE` varchar(100) NOT NULL,
-  `MADE` date NOT NULL
+CREATE TABLE `Label` (
+  `Id_Label` int(11) NOT NULL,
+  `Label` varchar(100) NOT NULL,
+  `Make` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Label_Activity`
+--
+
+CREATE TABLE `Label_Activity` (
+  `Id_Label` int(11) NOT NULL,
+  `Label` varchar(100) NOT NULL,
+  `Make` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `lable`
+-- Dumping data for table `Label_Activity`
 --
 
-INSERT INTO `lable` (`ID_LABEL`, `LABLE`, `MADE`) VALUES
-(1, 'Activities', '2018-12-03'),
-(2, 'News', '2018-12-03');
+INSERT INTO `Label_Activity` (`Id_Label`, `Label`, `Make`) VALUES
+(1, 'Andika', '2019-01-16'),
+(2, 'Zikri', '2019-01-15'),
+(5, 'andika', '2019-01-17'),
+(7, '', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Label_News`
+--
+
+CREATE TABLE `Label_News` (
+  `Id_Label` int(11) NOT NULL,
+  `Label` varchar(100) NOT NULL,
+  `Make` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -136,10 +162,22 @@ ALTER TABLE `image`
   ADD PRIMARY KEY (`ID_IMAGE`);
 
 --
--- Indexes for table `lable`
+-- Indexes for table `Label`
 --
-ALTER TABLE `lable`
-  ADD PRIMARY KEY (`ID_LABEL`);
+ALTER TABLE `Label`
+  ADD PRIMARY KEY (`Id_Label`);
+
+--
+-- Indexes for table `Label_Activity`
+--
+ALTER TABLE `Label_Activity`
+  ADD PRIMARY KEY (`Id_Label`);
+
+--
+-- Indexes for table `Label_News`
+--
+ALTER TABLE `Label_News`
+  ADD PRIMARY KEY (`Id_Label`);
 
 --
 -- Indexes for table `news`
@@ -167,10 +205,20 @@ ALTER TABLE `admin`
 ALTER TABLE `image`
   MODIFY `ID_IMAGE` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `lable`
+-- AUTO_INCREMENT for table `Label`
 --
-ALTER TABLE `lable`
-  MODIFY `ID_LABEL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `Label`
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Label_Activity`
+--
+ALTER TABLE `Label_Activity`
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `Label_News`
+--
+ALTER TABLE `Label_News`
+  MODIFY `Id_Label` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `news`
 --

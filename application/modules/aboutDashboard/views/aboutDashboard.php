@@ -5,7 +5,7 @@
                   <div class="card-body">
                       <!-- Search  -->
                       <h1>About</h1>
-                      <input name="Golongan Darah"/>
+                      <textarea rows="5" cols="70" ></textarea>
                   </div>
               </div>
           </div><!-- /# column -->

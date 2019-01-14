@@ -1,11 +1,10 @@
 $jq(".add-confirm").click(function () {
     var x = $jq('#gallery-form');
-    var input = $jq(x).find(':input')
+    var input = $jq(x).find(':input');
     var arr = [].slice.call(input);
     var dataForm = Array();
     var dataFile = Array();
 
-    var idGallery;
     for (let i = 0; i < arr.length - 1; i++) {
         dataForm.push($jq(arr[i]).val());
     }

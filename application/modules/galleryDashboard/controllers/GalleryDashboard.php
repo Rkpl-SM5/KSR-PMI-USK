@@ -91,7 +91,7 @@ class GalleryDashboard extends CI_Controller
 
             $page .= '<div id="' . $row->ID_IMAGE . '" class="col-md-4 image-gallery centered-content">';
             $page .= '<div class="card">';
-            $page .= '<img onclick="show(this)" class="card-img-top" src="Data/images/' . $row->ID_IMAGE . '">';
+            $page .= '<img onclick="show(this)" class="card-img-top" src="'.base_url().'Data/images/' . $row->ID_IMAGE . '">';
             $page .= '<div class="card-image-gallery">';
             $page .= '<h6 class="card-title mb-3">' . $row->NAME . '</h6>';
             $page .= '</div>';
@@ -136,13 +136,16 @@ class GalleryDashboard extends CI_Controller
         $Label = $this->Model_lib->SelectQuery($query);
         $id = "";
         if ($Label->num_rows() > 0) {
+            $query = sprintf("SELECT * FROM gallery WHERE TITLE LIKE '%s'", $data[0]);
+            $gallery = $this->Model_lib->SelectQuery($query);
 
-            $tabel = "gallery";
-            $dataInsert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
-            $dataInsert["ID_LABLE"] = $Label->row()->Id_Label;
-            $dataInsert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
-            $result = $this->Model_lib->insert($tabel, $dataInsert);
-
+            if ($gallery->num_rows() == 0) {
+                $tabel = "gallery";
+                $dataInsert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
+                $dataInsert["ID_LABLE"] = $Label->row()->Id_Label;
+                $dataInsert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
+                $result = $this->Model_lib->insert($tabel, $dataInsert);
+            }
             $query = sprintf("SELECT ID_GALLERY FROM gallery WHERE TITLE LIKE '%s' AND MAKE='%s'", $data[0], $data[2]);
             $id = $this->Model_lib->SelectQuery($query)->row()->ID_GALLERY;
 
@@ -153,13 +156,20 @@ class GalleryDashboard extends CI_Controller
             $result = $this->Model_lib->insert($tabel, $dataInsert);
             $dataInsert = "";
 
-            $query = sprintf("SELECT * FROM Label WHERE Label LIKE '%s'", $data[1]);
-            $Label = $this->Model_lib->SelectQuery($query);
-            $tabel = "gallery";
-            $insert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
-            $insert["ID_LABLE"] = $Label->row()->Id_Label;
-            $insert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
-            $result = $this->Model_lib->insert($tabel, $insert);
+            $query = sprintf("SELECT * FROM gallery WHERE TITLE LIKE '%s'", $data[0]);
+            $gallery = $this->Model_lib->SelectQuery($query);
+
+            if ($gallery->num_rows() == 0) {        
+                $query = sprintf("SELECT * FROM Label WHERE Label LIKE '%s'", $data[1]);
+                $Label = $this->Model_lib->SelectQuery($query);
+
+                
+                $tabel = "gallery";
+                $insert["TITLE"] = stripslashes($this->db->escape_str($data[0]));
+                $insert["ID_LABLE"] = $Label->row()->Id_Label;
+                $insert["MAKE"] = stripslashes($this->db->escape_str($data[2]));
+                $result = $this->Model_lib->insert($tabel, $insert);
+            }
 
             $query = sprintf("SELECT ID_GALLERY FROM gallery WHERE TITLE LIKE '%s' AND MAKE='%s'", $data[0], $data[2]);
             $id = $this->Model_lib->SelectQuery($query)->row()->ID_GALLERY;

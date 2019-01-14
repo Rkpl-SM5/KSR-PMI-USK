@@ -13,7 +13,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                                 <p>Project Manager</p>
                             </div>
                             <a class="image-container" href="#">
-                                <img class="align-right mr-3 image-width" alt="" src="assets/theme/images/jpg.jpg">
+                                <img class="align-right mr-3 image-width" alt="" src="<?php echo base_url();?>assets/theme/images/jpg.jpg">
                             </a>
                         </div>
                     </div>

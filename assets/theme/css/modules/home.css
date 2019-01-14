@@ -7,8 +7,19 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    /* opacity: 0.4; */
+
+
 }
 
 .centered-content {
     text-align: center;
+}
+
+#contact {
+    font-size: 18pt;
+    z-index: 10;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
 }

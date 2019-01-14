@@ -3,7 +3,9 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang=""> <!--<![endif]-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,10 +22,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/theme/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/css/cs-skin-elastic.css">
 
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/theme/css/app.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/css/app.css">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
@@ -33,8 +35,8 @@
 
     <script>
         var BASE_URL = '<?php echo base_url(); ?>index.php/';
-        var FLAG_INIT_CHAT=0;
-        var FLAG_INIT_NOTIF=0;
+        var BASE_APP='<?php echo base_url(); ?>';
+
     </script>
 
 </head>
@@ -44,7 +46,7 @@
     <header id="header" class="header">
         <div class="top-left">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./"><img src="assets/theme/images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/theme/images/logo.png" alt="Logo"></a>
             </div>
         </div>
         <div class="top-right">
@@ -59,10 +61,11 @@
                     </div>
 
                     <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="Home">Home</button>
-                    <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="News">News</button>
                     <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="Activities">Activites</button>
                     <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="Gallery">Gallery</button>
                     <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="About">About</button>
+                    <button type="button" class="btn btn-outline-danger noline nav-menu menu-app" data-val="SignIn">Sign-in</button>
+
 
                 </div>
             </div>

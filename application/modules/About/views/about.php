@@ -16,7 +16,6 @@
         </div>
         <div class="card-body">
             <div class="custom-tab">
-
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link  active show" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-home" role="tab" aria-controls="custom-nav-home" aria-selected="false">History</a>
@@ -71,7 +70,6 @@
                         <p class="contact"><i class="ti ti-email"></i> pmiunsyiah@gmail.com</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

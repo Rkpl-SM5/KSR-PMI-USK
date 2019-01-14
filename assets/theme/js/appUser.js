@@ -1,7 +1,12 @@
-$jq(document).ready(function ($) {
+var nav = "Home";
+var flag = 0;
 
+$jq(document).ready(function ($) {
+    if (sessionStorage.getItem("flag")) {
+        flag = sessionStorage.getItem("flag");
+    }
     //set landing dashboard di menu search
-    update("Home");
+    // update("Home");
 
     /*
      * function untuk action class menu-app
@@ -12,6 +17,24 @@ $jq(document).ready(function ($) {
         var z = $(this).data("val");
         update(z);
     });
+
+
+    if (flag != 0 && performance.navigation.type == 1) {
+        // console.log($jq("#pos").data("val"));
+        // console.log("ss");
+        window.stop();
+        nav = sessionStorage.getItem("nav");
+        // console.log(nav);
+        sessionStorage.setItem("nav", nav);
+
+        update(nav);
+    } else {
+        flag++;
+        sessionStorage.setItem("flag", flag);
+        sessionStorage.setItem("nav", nav);
+
+        update(nav);
+    }
 });
 
 
@@ -24,6 +47,8 @@ $jq(document).ready(function ($) {
  *   val => nama kategori
  * */
 function update(z) {
+    nav = z;
+    sessionStorage.setItem("nav", z);
     $jq.ajax({
         type: "POST",
         url: BASE_URL + z,
@@ -33,7 +58,7 @@ function update(z) {
             //navText(data.nav);
         },
         error: function (data) {
-            alert(z);
+            alert(BASE_URL + z);
         }
     });
 }

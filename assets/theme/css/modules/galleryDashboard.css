@@ -31,3 +31,40 @@
 .img-add {
     height: 120px;
 }
+
+.img-gallery {
+    height: 250px;
+    background-repeat: no-repeat;
+}
+
+.fade-img {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.fade-img:hover::after {
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    line-height: 183px;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    font-family: "FontAwesome";
+    font-size: 25pt;
+    content: "\f07c";
+
+    text-align: center;
+
+    color: whitesmoke;
+    background: rgba(7, 7, 7, 0.5);
+}
+
+
+
+/* .hide {
+    display: none !important;
+} */

@@ -16,6 +16,9 @@
         },
         {
             "path": "application/modules/statisticsDashboard"
+        },
+        {
+            "path": "application/modules/articleDashboard"
         }
     ],
     "settings": {}

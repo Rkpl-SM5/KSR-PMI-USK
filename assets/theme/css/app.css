@@ -109,3 +109,7 @@
     margin: 10px 1px 1px 10px !important;
     padding: 1px 1px 1px 1px !important;
 }
+
+p {
+    color: black !important;
+}

@@ -34,7 +34,7 @@ include APPPATH . "modules/articleDashboard/ajax/article.js";
           <div class="card-body card-block">
 
             <!-- Form add activity -->
-            <form id="activity-form" action="#" method="post" class="">
+            <form id="activity-form" action="#" method="post" class="" enctype="multipart/form-data">
 
               <input type="hidden" name="Id_Label" value="<?php echo $id; ?>">
 
@@ -56,8 +56,8 @@ include APPPATH . "modules/articleDashboard/ajax/article.js";
               </div>
 
               <div class="form-group">
-                  <label id="image-label" for="nf-image" class=" form-control-label">Image</label>
-                  <input class="form-control file-control" type="file" id="nf-image" name="file">
+                    <label id="image-label" for="nf-image" class=" form-control-label">Image</label>
+                  <input class="form-control-file" type="file" id="nf-image" name="file" accept="image/png, image/jpeg">
               </div>
 
             </form>

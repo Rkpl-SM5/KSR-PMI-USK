@@ -69,7 +69,8 @@ class StatisticsDashboard extends CI_Controller
 
     public function getAllTheTime()
     {
-
+        $where = sprintf("WHERE EMAIL='%s'", $data["email"]);
+        $result = $this->Model_lib->Cek("admin", $where);
     }
 }
 
